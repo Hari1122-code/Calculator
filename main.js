@@ -18,7 +18,7 @@ function handleNumber(numberString) {
     view_text += numberString;
     document.querySelector(".view").innerHTML = view_text;
     // if(previousOperator != null){
-
+    //     buffer="0"
     // }
     if (buffer === "0") {
         buffer = numberString;
@@ -81,6 +81,9 @@ function handleSymbol(symbol) {
         case "−":
         case "×":
         case "÷":
+            if(previousOperator!=null){
+                document.querySelector(".eq").click();
+            }
             handleMath(symbol);
             break;
     }
@@ -91,20 +94,18 @@ function handleMath(symbol) {
         return;
     }
     const intBuffer = parseFloat(buffer);
-    // console.log(intBuffer)
     if (symbol === "sq") {
         view_text += "*" + intBuffer;
         document.querySelector(".view").innerHTML = view_text;
         previousOperator = symbol;
-        buffer = "0"
         runningTotal = intBuffer;
     }
     else {
         view_text += symbol;
         document.querySelector(".view").innerHTML = view_text;
         previousOperator = symbol;
-        buffer = "0"
     }
+    buffer = "0"
     if (runningTotal === 0) {
         runningTotal = intBuffer;
     }
@@ -137,6 +138,12 @@ document.querySelector(".cal-buttons").addEventListener("click", function (event
 
 var input = document.querySelectorAll(".cal-button");
 input.forEach(ele => {
+    ele.addEventListener("keydown", function (event) {
+        if (event.key === "Backspace") {
+            event.preventDefault();
+            document.querySelector(".backspace").click();
+        }
+    })
     ele.addEventListener("keypress", function (event) {
         console.log(event.key)
         if (event.key === "Enter") {
@@ -199,9 +206,9 @@ input.forEach(ele => {
             event.preventDefault();
             document.querySelector(".div").click();
         }
-        else if (event.key.code === 8) {
+        else if (event.key === ".") {
             event.preventDefault();
-            document.querySelector(".backspace").click();
+            document.querySelector(".point").click();
         }
 
     });

@@ -18,31 +18,22 @@ body {
     height: inherit;
     align-items: center;
     display: flex;
-    justify-content: center;
-    animation:color 12s easw-in-out infinite;
-}
-@keyframes color{
-    0%{
-        background-position:0 50%
-    }
-    50%{
-        background-position: 100% 50%;
-    }
-    0%{
-        background-position: 0 50%;
-    }
-}
-.container{
-    display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    flex-basis: 350px;
-    /* width: 320px; */
-    height: 600px;
+}
+
+.nav{
+    font-size: 1.8rem;
+    background-color: rgba(255, 255, 255, 0.30);
+    border: none;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 5px;
+    width: 160px;
+    text-align: center;
+    margin-bottom: 4px;
 }
 .wrapper {
-
     background-color: rgba(255, 255, 255, 0.30);
     border: 1px solid rgba(255, 255, 255, 0.34);
     backdrop-filter: blur(4px);
@@ -51,7 +42,7 @@ body {
     box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
     color: #232323;
     width: 320px;
-    height: 540px;
+    height: 500px;
     padding: 20px 35px;
 }
 
@@ -108,7 +99,7 @@ body {
     flex-basis: 20%;
     font-family: inherit;
     font-size: 24px;
-    height: 65px;
+    height: 58px;
 }
 
 .cal-button:last-child,.point,.sqr {
